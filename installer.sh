@@ -2,8 +2,11 @@ clear
 printf "\nstarting installer ⏳..."
 sleep 1
 
+brew_installs=( "git" "python3")
+pip3_installs=( "geopandas" "pandas" "folium" "geopy")
+python_installs=( "pip3")
 
-
+# brew installation
 printf "\nchecking for brew..."
 if [ -x "$(command -v brew)" ]; then
   printf "\nbrew already installed ✓\n"
@@ -16,8 +19,7 @@ else
   printf "\nbrew installed ✓"
 fi
 
-brew_installs=( "git" "python3")
-
+# brew installations loop
 for app in ${brew_installs[@]}; do
   printf "\nchecking for $app..."
   if [ -x "$(command -v $app)" ]; then
@@ -30,9 +32,8 @@ for app in ${brew_installs[@]}; do
   fi
 done
 
-python_installs=( "pip3")
-
-for app in ${brew_installs[@]}; do
+# python installations loop
+for app in ${python_installs[@]}; do
   printf "\nchecking for $app..."
   if [ -x "$(command -v $app)" ]; then
     printf "\n$app already installed ✓\n"
@@ -44,68 +45,18 @@ for app in ${brew_installs[@]}; do
   fi
 done
 
-
-
-# printf "\nchecking for pip3..."
-# if [ -x "$(command -v pip3)" ]; then
-#   printf "\npip3 already installed ✓\n"
-#   pip3 --version
-# else
-#   printf "\npip3 not installed"
-#   printf "\ninstalling pip3..."
-#   python3 get-pip.py
-#   printf "\npip3 installed ✓"
-# fi
-
-
-
-# printf "\nchecking for geopandas..."
-# if [ -x "$(command -v geopandas)" ]; then
-#   printf "\ngeopandas already installed ✓\n"
-# else
-#   printf "\ngeopandas not installed"
-#   printf "\ninstalling geopandas..."
-#   pip3 install geopandas
-#   printf "\ngeopandas installed ✓"
-# fi
-
-
-
-# printf "\nchecking for pandas..."
-# if [ -x "$(command -v pandas)" ]; then
-#   printf "\npandas already installed ✓\n"
-# else
-#   printf "\npandas not installed"
-#   printf "\ninstalling pandas..."
-#   pip3 install pandas
-#   printf "\npandas installed ✓"
-# fi
-
-
-
-# printf "\nchecking for folium..."
-# if [ -x "$(command -v folium)" ]; then
-#   printf "\nfolium already installed ✓\n"
-# else
-#   printf "\nfolium not installed"
-#   printf "\ninstalling folium..."
-#   pip3 install folium
-#   printf "\nfolium installed ✓"
-# fi
-
-
-
-# printf "\nchecking for geopy..."
-# if [ -x "$(command -v geopy)" ]; then
-#   printf "\ngeopy already installed ✓\n"
-# else
-#   printf "\ngeopy not installed"
-#   printf "\ninstalling geopy..."
-#   pip3 install geopy
-#   printf "\ngeopy installed ✓"
-# fi
-
-
+# pip installations loop
+for app in ${pip3_installs[@]}; do
+  printf "\nchecking for $app..."
+  if [ -x "$(command -v $app)" ]; then
+    printf "\n$app already installed ✓\n"
+  else
+    printf "\n$app not installed"
+    printf "\ninstalling $app..."
+    pip3 install $app
+    printf "\n$app installed ✓"
+  fi
+done
 
 printf "\ninstaller complete 👍"
 printf "\nquitting installer...\n\n"
