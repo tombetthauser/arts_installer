@@ -1,5 +1,5 @@
 clear
-printf "\nstarting installer ⏳..."
+printf "\nstarting installer ⏳...\n"
 sleep 1
 
 brew_installs=( "git" "python3")
@@ -47,17 +47,11 @@ done
 
 # pip installations loop
 for app in ${pip3_installs[@]}; do
-  printf "\nchecking for $app..."
-  if [ -x "$(command -v $app)" ]; then
-    printf "\n$app already installed ✓\n"
-  else
-    printf "\n$app not installed"
-    printf "\ninstalling $app..."
-    pip3 install $app
-    printf "\n$app installed ✓"
-  fi
+  printf "\nchecking for $app...\n"
+  pip3 install $app
+  printf "$app installed ✓\n"
 done
 
 printf "\ninstaller complete 👍"
-printf "\nquitting installer...\n\n"
+printf "\nexiting installer...\n\n"
 sleep 1
