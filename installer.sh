@@ -3,7 +3,7 @@ printf "\nstarting installer ⏳...\n"
 sleep 1
 
 brew_installs=( "git" "python3")
-pip3_installs=( "geopandas" "pandas" "folium" "geopy")
+pip3_installs=( "geopandas" "pandas" "folium" "geopy" "tk")
 python_installs=( "pip3")
 
 # brew installation
