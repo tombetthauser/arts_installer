@@ -35,15 +35,9 @@ The installer script being run via the command line with the code file open sepe
 ```
 bash ~/Downloads/installer.sh
 ```
-3. Explore the other
+3. You may be prompted for your password during this process for authorization.
 ```
-python3 ~/Downloads/arts_citysearch/search.py
-```
-4. You will be prompted to enter a city, hit enter and allow the search to run.
-5. Depending on the city you enter the search could take seconds or hours to catalogue all gallery data.
-6. When the search is complete you will find a csv data file in the project folder.
-```
-The data is all yours, now find something cool to do with it!
+That's all, now check out some of the tools / pinned GitHub projects!
 ```
 ***  
 
